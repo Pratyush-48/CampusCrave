@@ -1,0 +1,486 @@
+/* Updated with green color scheme */
+:root {
+  /* Light Theme */
+  --light-bg: #ffffff;
+  --light-text: #292f36;
+  --light-card: #f5f5f5;
+  --light-primary: #38b000;
+  --light-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  
+  /* Dark Theme */
+  --dark-bg: #121212;
+  --dark-text: #f5f5f5;
+  --dark-card: #1e1e1e;
+  --dark-primary: #4caf50;
+  --dark-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+body.light-theme {
+  --bg: var(--light-bg);
+  --text: var(--light-text);
+  --card: var(--light-card);
+  --primary: var(--light-primary);
+  --shadow: var(--light-shadow);
+}
+
+body.dark-theme {
+  --bg: var(--dark-bg);
+  --text: var(--dark-text);
+  --card: var(--dark-card);
+  --primary: var(--dark-primary);
+  --shadow: var(--dark-shadow);
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+/* Layout */
+.landing-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  overflow-x: hidden;
+}
+
+section {
+  padding: 4rem 0;
+  width: 100%;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+}
+
+h2 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.eyebrow {
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.subhead {
+  font-size: clamp(1rem, 1.5vw, 1.3rem);
+  line-height: 1.6;
+  opacity: 0.9;
+  max-width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+/* Hero Section */
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+  gap: 3rem;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.hero-content {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-section h1 span {
+  color: var(--primary);
+  position: relative;
+  display: inline-block;
+}
+
+.hero-section h1 span::after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background-color: rgba(56, 176, 0, 0.3);
+  z-index: -1;
+  border-radius: 4px;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 600px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.hero-image img {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  object-fit: cover;
+}
+
+.floating-badge {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  background: var(--primary);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  box-shadow: var(--shadow);
+  transform: rotate(-5deg);
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Buttons */
+button {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  font-weight: 600;
+  border-radius: 12px;
+  white-space: nowrap;
+  font-size: 1rem;
+}
+
+.primary-btn {
+  background: var(--primary);
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 250px;
+  justify-content: center;
+}
+
+.secondary-btn {
+  background: transparent;
+  color: var(--primary);
+  padding: 1rem 2rem;
+  border: 2px solid var(--primary);
+  width: 100%;
+  max-width: 250px;
+}
+
+.cta-button {
+  background: var(--primary);
+  color: white;
+  padding: 1.2rem 3rem;
+  font-size: 1.2rem;
+  border-radius: 16px;
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 300px;
+}
+
+/* Features */
+.features-section {
+  background: var(--card);
+  border-radius: 30px;
+  margin: 3rem 0;
+  padding: 4rem 1.5rem;
+  width: 100%;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  background: var(--bg);
+  padding: 1.5rem;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.feature-card h3 {
+  color: var(--primary);
+  font-size: 1.3rem;
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+/* Food Carousel */
+.popular-section {
+  width: 100%;
+  overflow: hidden;
+}
+
+.popular-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.view-all {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: underline;
+  background: transparent;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.food-carousel {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 1.5rem;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.food-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.food-card {
+  min-width: 260px;
+  background: var(--card);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  flex-shrink: 0;
+}
+
+.food-image {
+  height: 180px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.food-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.food-info {
+  padding: 1.2rem;
+}
+
+.food-info h4 {
+  font-size: 1.1rem;
+}
+
+.price {
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+}
+
+/* Testimonial */
+.testimonial-section {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.testimonial-card {
+  background: var(--card);
+  padding: 2rem;
+  border-radius: 25px;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.quote {
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  line-height: 1.6;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.author img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--primary);
+}
+
+.name {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.role {
+  opacity: 0.8;
+  font-size: 0.85rem;
+}
+
+/* Final CTA */
+.final-cta {
+  text-align: center;
+  padding: 4rem 0;
+  width: 100%;
+}
+
+.cta-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(-5deg); }
+  50% { transform: translateY(-10px) rotate(5deg); }
+}
+
+/* Responsive Breakpoints */
+@media (min-width: 640px) {
+  .landing-container {
+    padding: 0 2rem;
+  }
+
+  .hero-section {
+    padding: 3rem 0;
+  }
+
+  .hero-cta {
+    flex-direction: row;
+  }
+
+  .primary-btn, .secondary-btn {
+    width: auto;
+  }
+
+  .food-card {
+    min-width: 280px;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-section {
+    flex-direction: row;
+    text-align: left;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+  }
+
+  .hero-content {
+    align-items: flex-start;
+    max-width: 50%;
+  }
+
+  .hero-cta {
+    justify-content: flex-start;
+  }
+
+  .subhead {
+    text-align: left;
+  }
+
+  .hero-image {
+    max-width: 45%;
+  }
+
+  .features-section {
+    padding: 5rem 2rem;
+  }
+
+  .testimonial-card {
+    padding: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  section {
+    padding: 5rem 0;
+  }
+
+  .hero-section {
+    min-height: 90vh;
+  }
+
+  .hero-image img {
+    max-height: 600px;
+  }
+
+  .floating-badge {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+  }
+
+  .features-grid {
+    gap: 2rem;
+  }
+
+  .feature-card {
+    padding: 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .landing-container {
+    padding: 0 3rem;
+  }
+}

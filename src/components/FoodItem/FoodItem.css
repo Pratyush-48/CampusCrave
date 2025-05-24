@@ -1,0 +1,268 @@
+.food-item {
+  background-color: white;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: var(--shadow-medium);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.food-item:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-large);
+}
+
+.food-image {
+  height: 220px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--gray-light);
+  position: relative;
+}
+
+.food-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.food-item:hover .food-image img {
+  transform: scale(1.08);
+}
+
+.veg-indicator,
+.non-veg-indicator {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(6px);
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.veg-indicator {
+  color: green;
+  border: 1px solid green;
+}
+
+.non-veg-indicator {
+  color: red;
+  border: 1px solid red;
+}
+
+.food-details {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  flex-grow: 1;
+}
+
+.food-details h3 {
+  font-size: 1.5rem;
+  color: var(--dark);
+  font-weight: 600;
+}
+
+.description {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.price {
+  font-weight: 600;
+  color: var(--primary);
+  font-size: 1.3rem;
+}
+
+.customization {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.quantity-selector button {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: var(--gray);
+  color: var(--dark);
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.quantity-selector button:hover {
+  background-color: var(--primary);
+  color: white;
+  transform: scale(1.1);
+}
+
+.quantity-selector span {
+  min-width: 36px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.spice-level,
+.special-instructions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.spice-level label,
+.special-instructions label {
+  font-size: 0.9rem;
+  color: #444;
+  font-weight: 500;
+}
+
+.spice-level select,
+.special-instructions input {
+  padding: 0.5rem;
+  border: 1px solid var(--gray);
+  border-radius: 6px;
+  outline: none;
+  font-size: 0.95rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.spice-level select:focus,
+.special-instructions input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(0, 128, 0, 0.2);
+}
+
+.add-to-cart-btn {
+  background: linear-gradient(145deg, var(--primary), #00c853);
+  color: rgb(0, 0, 0,0.7);
+  padding: 0.85rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  margin-top: auto;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 128, 0, 0.15);
+}
+
+.add-to-cart-btn:hover {
+  background-color: #ff5252;
+  transform: scale(1.04);
+}
+
+@media (max-width: 768px) {
+  .food-item {
+    flex-direction: column;
+  }
+
+  .food-image {
+    height: 160px;
+  }
+
+  .food-details {
+    padding: 1rem;
+  }
+}
+/* Dark Mode styles for Food Item Cards */
+body.dark-theme .food-item {
+  background-color: #1e1e1e;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.9);
+  color: #ddd;
+}
+
+body.dark-theme .food-image {
+  border-bottom: 1px solid #444;
+}
+
+body.dark-theme .food-details h3 {
+  color: #eee;
+}
+
+body.dark-theme .description {
+  color: #bbb;
+}
+
+body.dark-theme .price {
+  color: var(--primary);
+}
+
+/* Indicators background to be more opaque for contrast */
+body.dark-theme .veg-indicator,
+body.dark-theme .non-veg-indicator {
+  background: rgba(40, 40, 40, 0.85);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+/* Label colors */
+body.dark-theme .spice-level label,
+body.dark-theme .special-instructions label {
+  color: #ccc;
+}
+
+/* Inputs border and background */
+body.dark-theme .spice-level select,
+body.dark-theme .special-instructions input {
+  background-color: #2c2c2c;
+  border: 1px solid #555;
+  color: #ddd;
+}
+
+body.dark-theme .spice-level select:focus,
+body.dark-theme .special-instructions input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 6px var(--primary);
+  background-color: #333;
+}
+
+/* Quantity selector buttons */
+body.dark-theme .quantity-selector button {
+  background-color: #444;
+  color: #eee;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+body.dark-theme .quantity-selector button:hover {
+  background-color: var(--primary);
+  color: white;
+  transform: scale(1.1);
+}
+
+/* Quantity selector number */
+body.dark-theme .quantity-selector span {
+  color: #eee;
+}
+
+/* Add to cart button */
+body.dark-theme .add-to-cart-btn {
+  background: linear-gradient(145deg, var(--primary), #00c853);
+  color: #000a;
+  box-shadow: 0 4px 12px rgba(0, 255, 0, 0.4);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+body.dark-theme .add-to-cart-btn:hover {
+  background-color: #ff5252;
+  color: white;
+  transform: scale(1.04);
+}

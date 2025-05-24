@@ -1,0 +1,52 @@
+/* Light Theme Defaults */
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --text-primary: #212529;
+  --text-secondary: #495057;
+  --accent-color: #ff6b6b;
+  --border-color: #dee2e6;
+  --card-bg: #ffffff;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark Theme Variables */
+body.dark-theme {
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --text-primary: #f8f9fa;
+  --text-secondary: #e9ecef;
+  --accent-color: #ff8a8a;
+  --border-color: #333333;
+  --card-bg: #252525;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Base Styles */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Apply theme variables to components */
+.header {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.cart-drawer {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.food-item {
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+  box-shadow: var(--shadow);
+}
+
+.order-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+}

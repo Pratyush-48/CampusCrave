@@ -1,0 +1,78 @@
+/* Overlay fills the viewport, dark translucent background */
+.confirmation-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+/* Modal container with padding, border-radius, shadow, and a light theme */
+.confirmation-modal {
+  background: #fff;
+  padding: 2rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  max-width: 350px;
+  width: 90%;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+/* Header styling */
+.confirmation-modal h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #22c55e; /* A fresh green tone */
+}
+
+/* Paragraph text styling */
+.confirmation-modal p {
+  font-size: 1.1rem;
+  margin-bottom: 1.8rem;
+  color: #555;
+}
+
+/* Button styling with hover effects */
+.confirm-btn {
+  background-color: #22c55e;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(34, 197, 94, 0.4);
+}
+
+.confirm-btn:hover {
+  background-color: #16a34a;
+  box-shadow: 0 6px 12px rgba(22, 163, 74, 0.6);
+}
+
+/* Responsive adjustments */
+@media (max-width: 400px) {
+  .confirmation-modal {
+    padding: 1.5rem 1.5rem;
+  }
+
+  .confirmation-modal h3 {
+    font-size: 1.5rem;
+  }
+
+  .confirmation-modal p {
+    font-size: 1rem;
+  }
+
+  .confirm-btn {
+    padding: 0.65rem 1.5rem;
+    font-size: 1rem;
+  }
+}

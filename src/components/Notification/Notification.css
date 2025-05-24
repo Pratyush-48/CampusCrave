@@ -1,0 +1,147 @@
+:root {
+  --green: #22c55e;
+  --green-dark: #15803d;
+  --green-light-bg: #e6f9ec;
+  --dark-bg: #1e293b;
+  --light-text: #1f2937;
+  --dark-text: #e2e8f0;
+  --accent-shadow: rgba(34, 197, 94, 0.3);
+  --clock-blue: #3b82f6;
+}
+.notification {
+  background: #6adb8e !important;
+}
+
+.notification {
+  position: fixed;
+  top: 4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 380px;
+  padding: 2.2rem 2rem 2.6rem;
+  border-radius: 22px;
+  background: var(--green-light-bg);
+  color: var(--light-text);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  backdrop-filter: blur(8px);
+  transition: background 0.3s ease, color 0.3s ease;
+  z-index: 1100;
+  border: 1px solid rgba(34, 197, 94, 0.15);
+  overflow: hidden;
+  position: relative;
+}
+
+.notification.dark {
+  background: var(--dark-bg);
+  color: var(--dark-text);
+  border-color: rgba(148, 163, 184, 0.2);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.tick-wrapper {
+  background: var(--green);
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  margin: 0 auto 1.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: pulseGlow 2.6s ease-in-out infinite;
+  will-change: transform;
+  box-shadow: 0 0 14px var(--green-dark);
+}
+
+@keyframes pulseGlow {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.07); }
+}
+
+.tick-svg {
+  width: 42px;
+  height: 42px;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: white;
+  fill: none;
+}
+
+.notification-icon {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 48px;
+  height: 48px;
+  color: var(--clock-blue);
+  animation: floatClock 3.2s ease-in-out infinite;
+  will-change: transform;
+  filter: drop-shadow(0 2px 4px rgba(59, 130, 246, 0.3));
+}
+
+@keyframes floatClock {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.notification-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.notification-content h3 {
+  font-weight: 700;
+  font-size: 1.6rem;
+  margin-bottom: 0.6rem;
+  color: var(--light-text);
+}
+
+.notification-content .amount {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--green);
+  margin-bottom: 0.8rem;
+  text-shadow: 0 3px 5px rgba(34, 197, 94, 0.3);
+}
+
+.notification-content .message {
+  font-size: 1rem;
+  line-height: 1.4;
+  max-width: 85%;
+  margin: 0 auto;
+  opacity: 0.9;
+  color: inherit;
+}
+
+/* Responsive */
+@media (max-width: 420px) {
+  .tick-wrapper {
+    width: 70px;
+    height: 70px;
+  }
+
+  .tick-svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .notification-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .notification-content h3 {
+    font-size: 1.3rem;
+  }
+
+  .notification-content .amount {
+    font-size: 1.6rem;
+  }
+
+  .notification-content .message {
+    font-size: 0.95rem;
+  }
+}
